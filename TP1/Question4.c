@@ -65,8 +65,9 @@ int main() {
     Noeud* racine = construireABR(tabTrie, 0, nbElem - 1);
 
     double tempsSeq = 0, tempsDicho = 0, tempsABR = 0;
+    int valeur = -1;
+
     for (int essai = 0; essai < 10; essai++) {
-        int valeur = tab[rand() % nbElem];
         clock_t debut, fin;
 
         debut = clock();
@@ -85,9 +86,9 @@ int main() {
         tempsABR += (double)(fin - debut) / CLOCKS_PER_SEC;
     }
 
-    printf("Temps recherche iterative : %lf sec\n", tempsSeq / 10);
-    printf("Temps recherche dichotomique : %lf sec\n", tempsDicho / 10);
-    printf("Temps recherche ABR : %lf sec\n", tempsABR / 10);
+    printf("Temps moyen (pire cas) recherche iterative : %lf sec\n", tempsSeq / 10);
+    printf("Temps moyen (pire cas) recherche dichotomique : %lf sec\n", tempsDicho / 10);
+    printf("Temps moyen (pire cas) recherche ABR : %lf sec\n", tempsABR / 10);
 
     return 0;
 }
